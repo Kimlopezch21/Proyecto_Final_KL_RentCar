@@ -57,7 +57,6 @@ http://127.0.0.1:8000
 ```text
 Proyecto_Final_KL_RentCar/
 |-- app.py
-|-- pythonanywhere_wsgi.py
 |-- rentcar.sqlite
 |-- tests.py
 |-- README.md
