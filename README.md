@@ -1,8 +1,8 @@
 # Proyecto Final KL RentCar
 
-Sistema web para la gestion de renta de vehiculos. La aplicacion permite administrar catalogos, clientes, empleados, inspecciones, rentas, devoluciones, reportes y usuarios desde una interfaz centralizada.
+Sistema web para la gestión de renta de vehículos. La aplicación permite administrar catálogos, clientes, empleados, inspecciones, rentas, devoluciones, reportes y usuarios desde una interfaz centralizada.
 
-El proyecto esta preparado para ejecutarse localmente o desplegarse en PythonAnywhere usando Python, archivos estaticos y una base de datos local incluida en el proyecto.
+El proyecto está preparado para ejecutarse localmente utilizando Python, archivos estáticos y una base de datos SQLite.
 
 ## Caracteristicas principales
 
@@ -39,10 +39,7 @@ Contrasena: 12345
 - Python 3.11 o superior.
 - Navegador web moderno.
 
-No requiere instalacion de paquetes externos para ejecutarse en modo local.
-
 ## Ejecucion local
-
 Desde la carpeta del proyecto:
 
 ```powershell
@@ -86,21 +83,6 @@ Proyecto_Final_KL_RentCar/
 - Empleados
 - Usuarios
 
-## Despliegue en PythonAnywhere
-
-1. Crea una cuenta en PythonAnywhere.
-2. Sube la carpeta `Proyecto_Final_KL_RentCar` a tu cuenta.
-3. Crea una nueva aplicacion web manual con Python 3.
-4. Configura el archivo WSGI usando `pythonanywhere_wsgi.py`.
-5. Verifica que `PROJECT_DIR` apunte a la ruta donde subiste el proyecto:
-
-```python
-PROJECT_DIR = "/home/tu_usuario/Proyecto_Final_KL_RentCar"
-```
-
-6. Recarga la aplicacion web desde el panel de PythonAnywhere.
-7. Accede al sistema con las credenciales indicadas.
-
 ## Pruebas
 
 Para ejecutar las pruebas principales:
@@ -110,7 +92,3 @@ python tests.py
 ```
 
 Las pruebas validan autenticacion, permisos, inspecciones, rentas, devoluciones, usuarios y reportes.
-
-## Observaciones
-
-Este sistema fue desarrollado como proyecto academico para demostrar un flujo completo de gestion de renta de vehiculos, desde el registro de catalogos hasta la emision de reportes finales.
