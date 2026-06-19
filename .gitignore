@@ -3,3 +3,9 @@ __pycache__/
 rentcar.sqlite
 rentcar-test.sqlite
 .env
+# Backups
+*.backup
+*.bak
+
+# VS Code
+.vscode/
