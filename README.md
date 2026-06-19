@@ -1,103 +1,116 @@
-# RentCar con Google Sign-In
+# Proyecto Final KL RentCar
 
-Sistema web para la práctica de exoneración: React, Python estándar y SQLite.
+Sistema web para la gestion de renta de vehiculos. La aplicacion permite administrar catalogos, clientes, empleados, inspecciones, rentas, devoluciones, reportes y usuarios desde una interfaz centralizada.
 
-## Ejecutar localmente
+El proyecto esta preparado para ejecutarse localmente o desplegarse en PythonAnywhere usando Python, archivos estaticos y una base de datos local incluida en el proyecto.
 
-Desde esa carpeta:
+## Caracteristicas principales
+
+- Inicio de sesion con usuario y contrasena.
+- Control de acceso por roles: Administrador y Empleado.
+- Administracion de tipos de vehiculos, marcas, modelos y tipos de combustible.
+- Registro y mantenimiento de vehiculos.
+- Gestion de clientes y empleados.
+- Inspeccion previa al proceso de renta.
+- Registro de rentas, devoluciones, cancelaciones y reaperturas.
+- Consulta de rentas por cliente, vehiculo, estado y fechas.
+- Reporte profesional de rentas y devoluciones en PDF.
+- Panel inicial con resumen operativo.
+- Activacion e inactivacion de registros sin perdida de informacion.
+
+## Credenciales de acceso
+
+Administrador:
+
+```text
+Usuario: admin
+Contrasena: 12345
+```
+
+Empleado:
+
+```text
+Usuario: empleado
+Contrasena: 12345
+```
+
+## Requisitos
+
+- Python 3.11 o superior.
+- Navegador web moderno.
+
+No requiere instalacion de paquetes externos para ejecutarse en modo local.
+
+## Ejecucion local
+
+Desde la carpeta del proyecto:
 
 ```powershell
 python app.py
 ```
 
-Si `python` no está en el PATH, instala Python 3 y vuelve a ejecutar el comando anterior.
-
-Abre:
+Luego abre en el navegador:
 
 ```text
 http://127.0.0.1:8000
 ```
 
-La app crea `rentcar.sqlite` automáticamente con datos de ejemplo.
+## Estructura del proyecto
 
-## Login
-
-Variables de entorno principales:
-
-```powershell
-$env:GOOGLE_CLIENT_ID="TU_CLIENT_ID.apps.googleusercontent.com"
-$env:RENTCAR_ADMIN_EMAIL="tu_correo@gmail.com"
-$env:RENTCAR_SESSION_SECRET="cambia-este-secreto"
-$env:RENTCAR_DEMO_AUTH="1"
-python app.py
+```text
+Proyecto_Final_KL_RentCar/
+|-- app.py
+|-- pythonanywhere_wsgi.py
+|-- rentcar.sqlite
+|-- tests.py
+|-- README.md
+`-- static/
+    |-- index.html
+    |-- app.js
+    |-- styles.css
+    `-- assets/
 ```
 
-En desarrollo, `RENTCAR_DEMO_AUTH=1` muestra botones demo:
+## Modulos incluidos
 
-- `admin@rentcar.local`
-- `empleado@rentcar.local`
+- Inicio
+- Clientes
+- Inspecciones
+- Rentas y devoluciones
+- Reportes
+- Vehiculos
+- Tipos de vehiculos
+- Marcas
+- Modelos
+- Tipos de combustible
+- Empleados
+- Usuarios
 
-En PythonAnywhere se recomienda `RENTCAR_DEMO_AUTH=0`.
+## Despliegue en PythonAnywhere
 
-## Configurar Google Sign-In
-
-1. Entra a Google Cloud Console.
-2. Crea un proyecto.
-3. Configura la pantalla de consentimiento OAuth.
-4. Crea credenciales de tipo `OAuth client ID`.
-5. Tipo de aplicación: `Web application`.
-6. Agrega los orígenes autorizados:
-   - Local: `http://127.0.0.1:8000`
-   - PythonAnywhere: `https://tu_usuario.pythonanywhere.com`
-7. Copia el Client ID en `GOOGLE_CLIENT_ID`.
-
-Los usuarios deben existir en la pantalla `Usuarios` con estado `Activo`. Si alguien intenta entrar con Google y no está registrado, queda pendiente.
-
-## Despliegue en PythonAnywhere gratis
-
-1. Crea una cuenta gratis en PythonAnywhere.
-2. Sube la carpeta `Proyecto_Final_KL_RentCar` a `/home/tu_usuario/Proyecto_Final_KL_RentCar`.
-3. En la sección `Web`, crea una nueva app manual con Python 3.
-4. En el archivo WSGI de PythonAnywhere, copia el contenido de `pythonanywhere_wsgi.py`.
-5. Cambia esta línea:
+1. Crea una cuenta en PythonAnywhere.
+2. Sube la carpeta `Proyecto_Final_KL_RentCar` a tu cuenta.
+3. Crea una nueva aplicacion web manual con Python 3.
+4. Configura el archivo WSGI usando `pythonanywhere_wsgi.py`.
+5. Verifica que `PROJECT_DIR` apunte a la ruta donde subiste el proyecto:
 
 ```python
 PROJECT_DIR = "/home/tu_usuario/Proyecto_Final_KL_RentCar"
 ```
 
-6. En `Web > Environment variables`, configura:
-
-```text
-GOOGLE_CLIENT_ID=TU_CLIENT_ID.apps.googleusercontent.com
-RENTCAR_ADMIN_EMAIL=tu_correo@gmail.com
-RENTCAR_SESSION_SECRET=un_texto_largo_y_privado
-RENTCAR_DEMO_AUTH=0
-```
-
-7. Recarga la web app.
-8. Entra con el correo definido en `RENTCAR_ADMIN_EMAIL`.
-
-Nota: PythonAnywhere gratis restringe llamadas salientes a dominios permitidos. Google APIs está en su lista permitida, por eso la verificación del token de Google puede funcionar desde el backend gratis.
-
-## Módulos incluidos
-
-- Tipos de vehículos
-- Marcas
-- Modelos
-- Tipos de combustible
-- Vehículos
-- Clientes
-- Empleados
-- Inspecciones
-- Renta y devolución
-- Consulta por criterios
-- Reporte de rentas con CSV
-- Usuarios y roles
+6. Recarga la aplicacion web desde el panel de PythonAnywhere.
+7. Accede al sistema con las credenciales indicadas.
 
 ## Pruebas
+
+Para ejecutar las pruebas principales:
 
 ```powershell
 python tests.py
 ```
 
-Las pruebas usan una base SQLite temporal y validan login demo, permisos, inspección, renta, devolución y reporte.
+Las pruebas validan autenticacion, permisos, inspecciones, rentas, devoluciones, usuarios y reportes.
+
+## Observaciones
+
+Este sistema fue desarrollado como proyecto academico para demostrar un flujo completo de gestion de renta de vehiculos, desde el registro de catalogos hasta la emision de reportes finales.
