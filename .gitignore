@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+rentcar.sqlite
+rentcar-test.sqlite
+.env
